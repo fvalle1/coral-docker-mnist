@@ -1,0 +1,10 @@
+version: '3'
+services:
+  coral:
+    build: .
+    image: coral
+    volumes:
+      - ./data/:/home/data
+    privileged: true
+    devices:
+      - /dev/:/dev/
