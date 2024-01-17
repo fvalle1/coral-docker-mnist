@@ -13,6 +13,8 @@ RUN python3 -m pip install --no-cache-dir -U pip
 
 COPY requirements.txt /home/data/requirements.txt
 RUN python3 -m pip install --no-cache-dir -r /home/data/requirements.txt
+COPY convert.sh /home/.
+COPY run.sh /home/.
 
 ENTRYPOINT ["sh"]
-CMD ["/home/data/run.sh"]
+CMD ["/home/run.sh"]

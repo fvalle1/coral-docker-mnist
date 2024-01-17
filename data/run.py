@@ -40,7 +40,7 @@ classify.get_classes(interpreter, top_k=1)
 
 # %%
 def pred(X_data):
-    common.set_input(interpreter, X_data.reshape((width, height, 1))/255.)
+    common.set_input(interpreter, X_data.reshape((width, height, 1)))
     interpreter.invoke()
     return classify.get_classes(interpreter, top_k=1)[0].id
 
@@ -51,6 +51,9 @@ y_real = Y_test
 cm = sns.heatmap(
     confusion_matrix(y_real, y_pred, normalize="true"),
     )
+
+fig = cm.get_figure()
+fig.savefig("out.png")
 
 # %%
 
